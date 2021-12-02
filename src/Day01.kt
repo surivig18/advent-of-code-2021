@@ -4,12 +4,17 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        var count = 0;
+        input.forEachIndexed { index, s ->
+            if( index >  0) {
+                if(Integer.parseInt(s) > Integer.parseInt(input[index - 1]))
+                count++
+            }
+        }
+        return count
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
 
     val input = readInput("Day01")
     println(part1(input))
